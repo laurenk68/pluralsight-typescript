@@ -1,5 +1,6 @@
 "use strict";
 var enums_1 = require('./enums');
+var classes_1 = require('./classes');
 function GetAllBooks() {
     var books = [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: enums_1.Category.Fiction },
@@ -110,6 +111,7 @@ var myBook = {
     pages: 250,
     markDamaged: function (reason) { return console.log('Damaged: ' + reason); }
 };
-PrintBook(myBook);
-myBook.markDamaged('Misasing back cover');
+var favLibrarian = new classes_1.UniversityLibrarian();
+favLibrarian.name = 'Sharon';
+favLibrarian.assistCustomer('Lauren');
 //# sourceMappingURL=app.js.map

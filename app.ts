@@ -1,5 +1,6 @@
-import {Category } from './enums';
-import { Book } from './interfaces';
+import { Category } from './enums';
+import { Book, DamageLogger, Author, Librarian } from './interfaces';
+import { UniversityLibrarian } from './classes';
 
 function GetAllBooks() : Book[]{
     let books = [
@@ -125,5 +126,6 @@ let myBook : Book = {
     markDamaged: (reason: string) => console.log('Damaged: ' + reason)
 };
 
-PrintBook(myBook);
-myBook.markDamaged('Misasing back cover');
+let favLibrarian: Librarian = new UniversityLibrarian();
+favLibrarian.name = 'Sharon';
+favLibrarian.assistCustomer('Lauren');

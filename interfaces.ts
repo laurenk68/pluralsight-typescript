@@ -7,7 +7,26 @@ interface Book {
 	available: boolean;
 	category: Category;
 	pages?: number;
-	markDamaged?: (reason: string) => void;
+	markDamaged?: DamageLogger;
 }
 
-export { Book };
+interface DamageLogger {
+	(reason: string) : void;
+}
+
+interface Person {
+	name: string;
+	email: string;
+}
+
+interface Author extends Person {
+	numBooksPublished: number;
+	assistCustomer: (custName: string) => void;
+}
+
+interface Librarian extends Person {
+	department: string;
+	assistCustomer
+}
+
+export { Book, DamageLogger, Author, Librarian };
