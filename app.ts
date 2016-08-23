@@ -1,5 +1,7 @@
+import {Category } from './enums';
+import { Book } from './interfaces';
 
-function GetAllBooks() {
+function GetAllBooks() : Book[]{
     let books = [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
         { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
@@ -12,7 +14,7 @@ function GetAllBooks() {
 
 function LogFirstAvailable(books = GetAllBooks()): void {
 
-    let numberOfBooks: number = books.length;
+    let numberOfBooks: number = books.length;0
     let firstAvailable: string = '';
     for(let currentBook of books) {
         
@@ -26,7 +28,7 @@ function LogFirstAvailable(books = GetAllBooks()): void {
     console.log('First Available: ' + firstAvailable);
 }
 
-enum Category { Biography, Poetry, Fiction, History, Children };
+
 
 function GetBookTitlesByCategory(categoryFilter: Category = Category.Fiction) : Array<string> {
     console.log('Getting books in category: ' + Category[categoryFilter]);
@@ -48,7 +50,7 @@ function LogBookTitles(titles: string[]) : void {
     }
 }
 
-function GetBookById(id: number) {
+function GetBookById(id: number): Book {
     const allBooks = GetAllBooks();
     return allBooks.filter(book => book.id === id)[0];
 }
@@ -108,7 +110,20 @@ function GetTitles(bookProperty: any): string[] {
 
     return foundTitles;
 }
-//*****************************************************************
 
-let hermansBooks = GetTitles(false);
-hermansBooks.forEach(title => console.log(title));
+function PrintBook(book: Book): void {
+    console.log(book.title + ' by ' + book.author);
+}
+//*****************************************************************
+let myBook : Book = {
+    id: 5,
+    title: 'Pride and Prejudice',
+    author: 'Jane Austen',
+    available: true,
+    category: Category.Fiction,
+    pages: 250,
+    markDamaged: (reason: string) => console.log('Damaged: ' + reason)
+};
+
+PrintBook(myBook);
+myBook.markDamaged('Misasing back cover');
