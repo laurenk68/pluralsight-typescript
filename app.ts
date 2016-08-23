@@ -1,6 +1,6 @@
 import { Category } from './enums';
 import { Book, DamageLogger, Author, Librarian } from './interfaces';
-import { UniversityLibrarian } from './classes';
+import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
 
 function GetAllBooks() : Book[]{
     let books = [
@@ -116,16 +116,3 @@ function PrintBook(book: Book): void {
     console.log(book.title + ' by ' + book.author);
 }
 //*****************************************************************
-let myBook : Book = {
-    id: 5,
-    title: 'Pride and Prejudice',
-    author: 'Jane Austen',
-    available: true,
-    category: Category.Fiction,
-    pages: 250,
-    markDamaged: (reason: string) => console.log('Damaged: ' + reason)
-};
-
-let favLibrarian: Librarian = new UniversityLibrarian();
-favLibrarian.name = 'Sharon';
-favLibrarian.assistCustomer('Lauren');
