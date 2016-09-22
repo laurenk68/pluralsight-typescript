@@ -1,0 +1,23 @@
+{
+  "name": "pluralsight-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurenk68/pluralsight-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurenk68/pluralsight-typescript/issues"
+  },
+  "homepage": "https://github.com/laurenk68/pluralsight-typescript#readme",
+  "dependencies": {
+    "lodash": "^4.16.1"
+  }
+}

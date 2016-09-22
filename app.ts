@@ -1,13 +1,12 @@
+
+
 import { Category } from './enums';
 import { Book, Logger, Author, Librarian, Magazine } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';
 import { CalculateLateFee as CalcFee, MaxBooksAllowed, Purge } from  './lib/utilityFunctions';
 import refBook from './encyclopedia';
 import Shelf from './shelf';
-
-
-let reference = new refBook('Fact Book', 2016, 1);
-
+import * as _ from "lodash";
 
 function GetAllBooks() : Book[]{
     let books = [
@@ -19,6 +18,7 @@ function GetAllBooks() : Book[]{
 
     return books;
 }
+
 
 function LogFirstAvailable(books = GetAllBooks()): void {
 
@@ -134,10 +134,6 @@ let inventory: Array<Book> = [
 ];
 
 
-let bookShelf: Shelf<Book> = new Shelf<Book>();
-inventory.forEach(book => bookShelf.add(book));
-
-let firstBook: Book = bookShelf.getFirst();
 
 let magazines: Array<Magazine> = [
     { title: 'Programming Language Monthly', publisher: 'Code Mags'},
@@ -145,11 +141,3 @@ let magazines: Array<Magazine> = [
     { title: 'Five Points', publisher: 'GSU' }
 ];
 
-let magazineShelf: Shelf<Magazine> = new Shelf<Magazine>();
-magazines.forEach(mag => magazineShelf.add(mag));
-let firstMagazine: Magazine = magazineShelf.getFirst();
-
-magazineShelf.printTitles();
-
-let softwareBook = bookShelf.find('Code Complete');
-console.log(`${softwareBook.title} (${softwareBook.author})`);
